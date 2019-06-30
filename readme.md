@@ -1,5 +1,5 @@
 # User App
-simple user registration and management  webapp
+A simple user registration and management webapp
 
 
 ## Introduction
@@ -20,8 +20,9 @@ I used Laravel for backend and Vue.js for frontend. Mysql for db, but this is op
 
 ## Installation
 
- - clone app repo: `git clone https://github.com/windigo00/userApp.git`
+For more info on Laravel app setup, please see [https://laravel.com/docs/5.8/installation#installation]
 
+ - Clone app repo: `git clone https://github.com/windigo00/userApp.git`
 
  - Create database and db user or use existing.
 
@@ -33,11 +34,9 @@ I used Laravel for backend and Vue.js for frontend. Mysql for db, but this is op
 
 	`FLUSH PRIVILEGES;`
 
- - Copy template file `.env.example` into `.env`.
+ - Copy template config file `.env.example` into `.env`.
 
- - Update `.env` configuration. Chiefly DB_* for database connection. Use name and credentials from db setup step. (see Laravel env setup for more [https://laravel.com/docs/5.8/configuration#environment-configuration])
-
- - For more info on Laravel app setup, pleease see [https://laravel.com/docs/5.8/installation#installation]
+ - Update `.env` configuration. Chiefly `DB_*` for database connection. Use db name and credentials from db setup step. (see Laravel env setup for more [https://laravel.com/docs/5.8/configuration#environment-configuration])
 
  - Install vendor packages with composer
 
@@ -47,21 +46,25 @@ I used Laravel for backend and Vue.js for frontend. Mysql for db, but this is op
 
 	`php artisan key:generate`
 
- - Run migrations
+ - Run migrations (creates db tables)
 
 	`php artisan migrate`
+    
+ - Form more information on Laravel `artisan`, please visit [https://laravel.com/docs/5.8/artisan]
 
 
 ### Javascript and Css (optional)
 
- - install packages
+Repo already contains processed js and css for dev environment. This step is for development and production.
+
+ - Install packages
 
 	`npm install`
 
- - update compiled scripts for dev: `npm run dev`
+ - Update compiled scripts for dev: `npm run dev`
 
- - update compiled scripts for production: `npm run build`
+ - Update compiled scripts for production: `npm run build`
 
-### Server preparation
+## Server
 
- - you can run `php artisan serve` for local server or setup standard hosting. mod_rewrite is optional. 
+ - You can run `php artisan serve` for local server or setup standard hosting. mod_rewrite is optional. 
