@@ -20,50 +20,47 @@ I used Laravel for backend and Vue.js for frontend. Mysql for db, but this is op
 
 ## Installation
 
-clone app repo: `git clone https://github.com/windigo00/userApp.git`
+ - clone app repo: `git clone https://github.com/windigo00/userApp.git`
 
 
-Create database and db user or use existing.
+ - Create database and db user or use existing.
 
-`CREATE DATABASE 'user_app';`
+	`CREATE DATABASE 'user_app';`
 
-`CREATE USER 'user_app'@'localhost' IDENTIFIED BY 'user_password';`
+	`CREATE USER 'user_app'@'localhost' IDENTIFIED BY 'user_password';`
 
-`GRANT ALL PRIVILEGES ON user_app.* TO 'user_app'@'localhost';`
+	`GRANT ALL PRIVILEGES ON user_app.* TO 'user_app'@'localhost';`
 
-`FLUSH PRIVILEGES;`
+	`FLUSH PRIVILEGES;`
 
+ - Copy template file `.env.example` into `.env`.
 
-Copy template file `.env.example` into `.env`.
+ - Update `.env` configuration. Chiefly DB_* for database connection. Use name and credentials from db setup step. (see Laravel env setup for more [https://laravel.com/docs/5.8/configuration#environment-configuration])
 
+ - For more info on Laravel app setup, pleease see [https://laravel.com/docs/5.8/installation#installation]
 
-Update `.env` configuration. Chiefly DB_* for database connection. Use name and credentials from db setup step. (see Laravel env setup for more [https://laravel.com/docs/5.8/configuration#environment-configuration])
+ - Install vendor packages with composer
 
-For more info on Laravel app setup, pleease see [https://laravel.com/docs/5.8/installation#installation]
+	`composer install`
 
+ - Generate security key
 
-Install vendor packages with composer
+	`php artisan key:generate`
 
-`composer install`
+ - Run migrations
 
-
-Generate security key
-
-`php artisan key:generate`
-
-Run migrations
-
-`php artisan migrate`
-
+	`php artisan migrate`
 
 
 ### Javascript and Css (optional)
 
-`npm install`
+ - install packages
 
-for dev: `npm run dev`
+	`npm install`
 
-for production: `npm run build`
+ - update compiled scripts for dev: `npm run dev`
+
+ - update compiled scripts for production: `npm run build`
 
 ### Server preparation
 
