@@ -7,6 +7,7 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\User;
 
 /**
@@ -161,7 +162,9 @@ class UserController extends Controller
         if (!Auth::user()->is_admin) {
             throw ValidationException::withMessages(['privilege' => [trans('auth.Access not allowed.')]]);
         }
-        $user->update($request->all());
+        $data = $request->all();
+        $data['updated_at'] = Carbon::now();
+        $user->update($data);
         return response()->json([
             'success' => '1',
             'message' => trans('user.Successfuly edited')
@@ -175,7 +178,7 @@ class UserController extends Controller
         }
 
         $user->delete();
-        
+
         return response()->json([
             'success' => '1',
             'message' => trans('user.Successfuly deleted')
