@@ -29,6 +29,7 @@
                                   @click="mode='edit'; user = usr">
                                 <font-awesome-icon icon="wrench" class="text-primary"/></span>
                             <span class="btn btn-light"
+                                  v-if="$parent.user.id !== usr.id"
                                   @click="deleteUser(usr)"
                                   :title="$options.filters.translate('user.User delete')">
                                 <font-awesome-icon icon="trash" class="text-danger del"/></span>
@@ -132,8 +133,10 @@
 
             deleteUser(user)
             {
-                if (window.confirm(this.$options.filters.translate('default.Are you sure?'))) {
-                    this.$emit('delete', user.id);
+                if (this.$parent.user.id !== user.id) {
+                    if (window.confirm(this.$options.filters.translate('default.Are you sure?'))) {
+                        this.$emit('delete', user.id);
+                    }
                 }
             }
         },

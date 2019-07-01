@@ -75,7 +75,8 @@ class UserController extends Controller
         if ($result) {
             $user = $this->guard()->user();
             $result = [
-                'name' => $user->name,
+                'id'    => $user->id,
+                'name'  => $user->name,
                 'email' => $user->email,
                 'admin' => $user->is_admin
             ];
